@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080c">
+<meta name="description" content="48 Hinglish sawaalon ke saath apni personality explore karo. Fun self-reflection quiz.">
+<title>Personality Detective – Aap kaun ho?</title>
+<style>
+:root{--bg:#07080c;--card:#0d0f16;--line:#1d2132;--ink:#f2f4fa;--mut:#98a0b5;--red:#ff3b1f;--org:#ff7a45;--blue:#4d7cff;--navy:#16244f;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:44px 44px;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;border-top:3px solid var(--red)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem}
+.wrap{max-width:980px;margin:0 auto;padding:22px 18px 40px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:34px}
+.logo{width:38px;height:38px;border-radius:50%;border:2px solid var(--blue);display:grid;place-items:center;font-size:.6rem;font-weight:800;box-shadow:0 0 14px #ff3b1f66}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:8px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+h1{font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.02;margin:14px 0 18px;font-weight:800;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--red)}
+p{color:var(--mut);line-height:1.65;margin:0 0 14px}
+.btn{border:0;cursor:pointer;font:inherit;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;padding:16px 26px;border-radius:6px;background:var(--red);color:#fff;box-shadow:0 0 24px #ff3b1f55}
+.btn.g{background:#12141d;border:1px solid var(--line);box-shadow:none}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.pill{border:1px solid var(--line);padding:7px 12px;border-radius:99px;color:var(--mut)}
+.globe{width:min(330px,78vw);aspect-ratio:1;margin:auto;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 35% 30%,#1c3d94,#0a1535 62%,#04070f);box-shadow:0 0 90px #2a4fd655,0 0 0 1px #4d7cff66}
+.globe:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#a9bcff99 1.1px,transparent 1.6px);background-size:10px 10px;opacity:.55;border-radius:50%}
+.pin{position:absolute;font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:5px}
+.pin:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px;max-width:640px;margin:0 auto}
+.top{display:flex;justify-content:space-between;color:var(--mut);margin-bottom:10px}
+.prog{height:5px;background:var(--navy);border-radius:9px;overflow:hidden;margin-bottom:26px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--org));transition:width .3s}
+.tag{display:inline-block;color:var(--blue);margin-bottom:10px;min-height:1em}
+.q{font-size:1.3rem;line-height:1.45;font-weight:700;min-height:96px;margin:0 0 16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;color:var(--ink);background:#10131c;border:1px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;transition:.15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--red);background:#1a1013}
+.opt b{width:26px;height:26px;border-radius:50%;background:var(--navy);display:grid;place-items:center;font-size:.75rem;flex:none}
+.nav{margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.link:focus-visible,.btn:focus-visible,.opt:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.btn,.opt,.link{touch-action:manipulation}
+.btn{min-height:48px}
+.opt{min-height:56px}
+@media(max-width:520px){.wrap{padding:18px 14px 32px}.card{padding:22px 16px}.q{font-size:1.15rem;min-height:0}.row{display:grid}.row .btn{width:100%}.nav .link{padding:10px 4px}}
+.link{background:none;border:0;color:var(--mut);font:inherit;cursor:pointer;padding:6px}
+.type{font-size:4rem;font-weight:800;letter-spacing:.08em;margin:6px 0 0;color:var(--red);line-height:1}
+.nick{font-size:1.25rem;font-weight:700;margin:4px 0 14px}
+.box{border:1px solid var(--line);background:#10131c;border-radius:10px;padding:14px;margin:12px 0}
+.box b{display:block;color:var(--blue);margin-bottom:4px}
+.box span{color:var(--ink);line-height:1.55}
+.dim{margin:18px 0}
+.l{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:7px}
+.l .a{color:var(--red);font-weight:700}.l .b{color:var(--blue);font-weight:700}
+.track{height:12px;border-radius:9px;background:var(--navy);position:relative;overflow:hidden}
+.track i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--red),var(--org));transition:width .9s}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.note{font-size:.78rem;color:var(--mut);margin-top:16px}
+.hide{display:none}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.globe{order:-1;width:min(230px,60vw)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><div class="logo">PD</div><div><b>PERSONALITY</b><div class="mono" style="color:var(--mut)">Detective</div></div></div>
+
+<div id="intro" class="hero">
+  <div>
+    <div class="mono"><span class="dot"></span>16 types · 48 sawaal · 8 se 50 saal</div>
+    <h1>Har jawab ek <em>clue.</em></h1>
+    <p>Sach mein aap kaun ho? Reels, dosti, padhai, kaam aur routine ke 48 sawaal. Jo aap sach mein karte ho wo chuno, jo karna chahiye wo nahi. Kuch sawaal ulte tareeke se dobara aayenge, isse asli aap pakde jaoge. Sirf button dabane hain, kuch likhna nahi.</p>
+    <button class="btn" id="start">Investigation shuru →</button>
+    <div class="pills mono"><span class="pill">≈ 8 min</span><span class="pill">Koi data save nahi</span><span class="pill">Turant result</span></div>
+  </div>
+  <div class="globe"><div class="pin" style="left:18%;top:26%">ENTJ</div><div class="pin" style="left:52%;top:44%">INFP</div><div class="pin" style="left:30%;top:68%">ISTJ</div><div class="pin" style="left:60%;top:20%">ENFP</div></div>
+</div>
+
+<div class="card hide" id="quiz">
+  <div class="top mono"><span id="cnt"></span><span id="pc"></span></div>
+  <div class="prog"><i id="bar"></i></div>
+  <div class="tag mono" id="tag"></div>
+  <p class="q" id="qt" style="color:var(--ink)"></p>
+  <div class="opts" id="opts"></div>
+  <div class="nav"><button class="link" id="back">← Pichla sawaal</button><button class="link" id="exit" style="color:var(--red)">✕ Quiz chhodo</button></div>
+</div>
+
+<div class="card hide" id="res">
+  <div class="mono" style="color:var(--mut)"><span class="dot"></span>Case closed · Aapka result</div>
+  <p class="type" id="rt"></p>
+  <p class="nick" id="rn"></p>
+  <p id="rd" style="color:var(--ink)"></p>
+  <div class="box"><b class="mono">Aapki taakat</b><span id="rs"></span></div>
+  <div class="box"><b class="mono">Dhyan dene wali baat</b><span id="rw"></span></div>
+  <div id="dims"></div>
+  <div class="box"><b class="mono" id="cn"></b><span id="cm"></span></div>
+  <div class="row"><button class="btn" id="share">Friends ko challenge do</button><button class="btn g" id="retake">Dobara quiz</button></div>
+  <p class="note">Ye fun self-reflection hai, koi medical ya scientific diagnosis nahi. 45–55% ka matlab hai aap dono taraf ke ho.</p>
+</div>
+</div>
+
+<script>
+// [dim, sign, text, options?]  sign:+1 haan=first pole, -1 reversed, 0 = situation question (first option = first pole)
+const Q=[
+[0,1,"Party ya function ke baad mujhe energy milti hai, thakaan nahi."],
+[0,-1,"Din bhar logon ke saath rehne ke baad mujhe akela time chahiye hi chahiye."],
+[0,0,"Nayi class, office ya mohalle mein pehle din aap kya karte ho?",["Khud jaakar sabse baat karta hoon","Pehle ek-do logon se, phir dheere dheere","Chup rehkar pehle sabko dekhta hoon"]],
+[0,1,"Anjaan logon se baat shuru karna mere liye aasaan hai."],
+[0,-1,"Mere kuch hi close dost hain, bada group mujhe thaka deta hai."],
+[0,0,"Chhutti ka perfect din kaisa hai?",["Dosto ke saath bahar ghoomna","Thoda bahar, thoda ghar","Ghar par apni pasand ka kaam akele"]],
+[0,1,"Main sochne se pehle bolta hoon; bolte bolte mera idea clear hota hai."],
+[0,-1,"Call karne se zyada main message karna pasand karta hoon."],
+[0,0,"Koi mazedaar reel mili to aap?",["Turant dosto ko bhej deta hoon","Khud dekhta hoon aur aage badh jata hoon"]],
+[0,1,"Reel ya photo post karke logon ka reaction dekhna mujhe achha lagta hai."],
+[0,-1,"Bheed mein bhi main apni hi duniya mein kho jata hoon."],
+[0,1,"Naye logon se milne ka mauka mile to mujhe excitement hoti hai."],
+[1,1,"Main facts aur tested tareeko par bharosa karta hoon."],
+[1,-1,"“Agar aisa ho jaye to?” sochte hue kho jana mujhe pasand hai."],
+[1,0,"Naya gadget ya game mile to aap?",["Pehle samjhta hoon ki kaise chalta hai, phir chalata hoon","Seedha chalakar khud seekh leta hoon"]],
+[1,-1,"Mera dimaag ek baat se doosri unrelated baat par kood jata hai."],
+[1,1,"Mujhe kaam aane wali practical cheezein pasand hain, theory nahi."],
+[1,0,"Koi kahani sunate waqt aap?",["Kya, kab, kaise, sab exact batata hoon","Bas main baat aur uska matlab batata hoon"]],
+[1,-1,"Main cheezon ke peeche chhupe pattern aur matlab dhoondta hoon."],
+[1,-1,"Naya aur alag tareeka mujhe purane tested tareeke se zyada pasand hai."],
+[1,0,"Aapko kaisi reels sabse zyada pasand hain?",["Tips, recipes, how-to jaisi kaam ki","Ajeeb, creative, dimaag ghuma dene wali"]],
+[1,-1,"Reel dekhkar main sochne lagta hoon ki iske peeche ka asli matlab kya hai."],
+[1,1,"Main present mein jeeta hoon, future ke sapnon mein kam."],
+[1,-1,"Log kabhi kabhi mujhe “hawa mein rehne wala” kehte hain."],
+[2,1,"Faisla lete waqt main logic ko feelings se upar rakhta hoon."],
+[2,-1,"Mere liye fair hone se zyada kind hona important hai."],
+[2,0,"Aapka dost ro raha hai. Aap kya karte ho?",["Use solution batata hoon","Bas uske saath baithta hoon"]],
+[2,1,"Criticism main seedha bolta hoon, chahe kadwa lage."],
+[2,-1,"Kisi ko “na” bolne mein mujhe guilt hota hai."],
+[2,0,"Dost se galti hui aur sab uspe hans rahe hain. Aap?",["Seedha bata deta hoon ki galti kya thi","Uske saath khada ho jata hoon"]],
+[2,1,"Emotional situation mein bhi main calm reh leta hoon."],
+[2,-1,"Doosron ki feelings main bina bole mehsoos kar leta hoon."],
+[2,0,"Koi sad ya emotional reel dikhe to?",["Bas dekh leta hoon, zyada asar nahi","Dil bhar aata hai, kabhi aankhein nam bhi"]],
+[2,1,"Reel mein koi galat baat bole to main comment karke sahi karna chahta hoon."],
+[2,-1,"Movie ya kahani dekhkar main aasani se emotional ho jata hoon."],
+[2,1,"Mujhe log unke arguments se samajh aate hain, bhavnao se nahi."],
+[3,1,"Trip se pehle main list banakar plan aur packing karta hoon."],
+[3,-1,"Last minute par kaam karne mein mujhe maza aata hai."],
+[3,0,"Kal exam ya presentation hai. Aaj raat aap?",["Sab ready karke aaram se soya","Aakhri raat tak lage rehte hain","Abhi mood nahi, kal dekhenge"]],
+[3,1,"Mera desk ya kamra aksar organized rehta hai."],
+[3,-1,"Plan badal jaye to main khush hota hoon, bandhan nahi lagta."],
+[3,0,"Homework ya kaam ka aapka tareeka?",["Pehle khatam, phir masti","Mood ke hisaab se, jab man kare"]],
+[3,1,"Main decisions jaldi final kar leta hoon."],
+[3,-1,"Options khule rakhna mujhe final karne se zyada pasand hai."],
+[3,0,"Reels dekhte waqt aap?",["Time sochkar dekhta hoon, limit par ruk jata hoon","Ek se doosri, ghanta kab nikla pata hi nahi"]],
+[3,-1,"Kaam chhodkar bas ek aur reel dekhne lagta hoon."],
+[3,1,"Daily routine follow karna mujhe sukoon deta hai."],
+[3,-1,"Main aksar kaam adhoora chhodkar naye kaam par chala jata hoon."]
+];
+const P=[["E","Extrovert","I","Introvert"],["S","Sensing","N","Intuition"],["T","Thinking","F","Feeling"],["J","Judging","P","Perceiving"]];
+const T={
+INTJ:["Architect","Aap door tak sochte ho aur bade plan ko step-by-step sach bana dete ho. Kam bolte ho, par dimaag hamesha chalta rehta hai.","Planning, focus, strategy","Doosron ki feelings aur madad ko bhi jagah do."],
+INTP:["Thinker","Aap har cheez ka “kyun” dhoondte ho. Ideas aur theories mein kho jana aapko sabse zyada pasand hai.","Soch, creativity, problem solving","Sochne ke saath kaam shuru bhi karo."],
+ENTJ:["Commander","Born leader. Aap goal tay karte ho aur logon ko saath lekar aage badhte ho.","Leadership, confidence, speed","Thoda ruk kar doosron ki baat suno."],
+ENTP:["Debater","Tez dimaag aur nayi baatein. Har idea ko ulta-seedha karke dekhna aapko pasand hai.","Wit, ideas, adaptability","Shuru kiye kaam ko poora bhi karo."],
+INFJ:["Guide","Shaant par gehre. Aap logon ko andar se samajhte ho aur kuch matlab wala karna chahte ho.","Empathy, vision, loyalty","Apne liye bhi time aur boundary rakho."],
+INFP:["Dreamer","Aap apni values aur sachchai ko sabse upar rakhte ho. Andar ek badi, rangeen duniya hai.","Creativity, kindness, honesty","Sapno ko chhote kadam mein badlo."],
+ENFJ:["Mentor","Logon ko aage badhte dekhna aapko khushi deta hai. Aap natural inspirer ho.","Warmth, leadership, communication","Sabki fikar mein khud ko mat bhoolo."],
+ENFP:["Spark","Josh, naye idea aur naye log. Aap jahan jaate ho wahan mahaul ban jata hai.","Energy, creativity, people skills","Ek kaam par tike rehna seekho."],
+ISTJ:["Organizer","Bharosemand aur disciplined. Jo bolte ho wo karte ho, aur kaam sahi tareeke se.","Reliability, discipline, detail","Naye tareeke ko bhi mauka do."],
+ISFJ:["Protector","Dhyan rakhne wale aur madadgar. Apno ke liye chupchap bahut kuch karte ho.","Care, patience, loyalty","Kabhi kabhi “na” bolna bhi theek hai."],
+ESTJ:["Manager","Order, rules aur results. Aap cheezon ko sahi dhang se chalate ho.","Organizing, decisiveness, drive","Sabke tareeke alag hote hain, ye yaad rakho."],
+ESFJ:["Host","Garam dil wale. Sabko saath rakhna aur khush dekhna aapko pasand hai.","Warmth, teamwork, care","Sabko khush karna zaroori nahi hai."],
+ISTP:["Fixer","Shaant aur practical. Cheezein haath se kholkar seekhna aur problem sulajhana pasand hai.","Calm, hands-on skills, logic","Apni baat bhi khul ke batao."],
+ISFP:["Artist","Naram dil aur apni hi style. Aap pal mein jeete ho aur sundarta ko mehsoos karte ho.","Creativity, gentleness, flexibility","Future ka thoda plan bhi banao."],
+ESTP:["Doer","Action aur risk. Mauka dekha aur kood pade, aapko maza isi mein aata hai.","Courage, quick thinking, fun","Karne se pehle ek second sochlo."],
+ESFP:["Performer","Life of the party. Aap pal ko khoobsurat bana dete ho aur sabko hansate ho.","Fun, warmth, spontaneity","Paise aur time ka hisaab rakho."]
+};
+const $=id=>document.getElementById(id);
+const LAB=["Bilkul nahi","Nahi","Beech ka","Haan","Bilkul haan"];
+let ord,ans,i;
+function val(k,c){const q=Q[k];if(q[3])return q[3].length==2?[2,-2][c]:[2,0,-2][c];return(c-2)*q[1]}
+function show(id){["intro","quiz","res"].forEach(x=>$(x).classList.toggle("hide",x!==id));window.scrollTo(0,0)}
+function start(){ord=Q.map((_,k)=>k).sort(()=>Math.random()-.5);ans={};i=0;show("quiz");render()}
+function render(){
+  const k=ord[i],q=Q[k],o=q[3]||LAB,L="ABC";
+  $("cnt").textContent="Sawaal "+(i+1)+" / "+Q.length;
+  const progress=Math.round((i+1)/Q.length*100);
+  $("pc").textContent=progress+"%";
+  $("bar").style.width=progress+"%";
+  $("tag").textContent=(k%12==8||k%12==9)?"📱 Reels":(q[3]?"Situation":"");
+  $("qt").textContent=q[2];
+  $("back").style.visibility=i?"visible":"hidden";
+  $("opts").innerHTML="";
+  o.forEach((t,c)=>{const b=document.createElement("button");b.className="opt"+(ans[k]===c?" sel":"");b.dataset.c=c;b.innerHTML="<b>"+(q[3]?L[c]:c+1)+"</b>";b.append(t);$("opts").appendChild(b)});
+}
+let pickTimer=null;
+function pick(c){
+  const k=ord[i];if(c>=(Q[k][3]||LAB).length)return;
+  if(pickTimer)clearTimeout(pickTimer);
+  ans[k]=c;[...$("opts").children].forEach(b=>b.classList.toggle("sel",+b.dataset.c===c));
+  pickTimer=setTimeout(()=>{if(i<Q.length-1){i++;render()}else finish()},220);
+}
+function finish(){
+  if(Q.some((_,k)=>ans[k]===undefined)){
+    const missing=ord.findIndex(k=>ans[k]===undefined);
+    if(missing>=0){i=missing;render();return;}
+  }
+  const sum=[0,0,0,0],vs=[[],[],[],[]];
+  Q.forEach((q,k)=>{const v=val(k,ans[k]);sum[q[0]]+=v;vs[q[0]].push(v)});
+  let code="",sd=0;$("dims").innerHTML="";
+  sum.forEach((s,d)=>{
+    const p=P[d],pct=Math.round(50+s/24*50);code+=pct>=50?p[0]:p[2];
+    const m=s/12;sd+=Math.sqrt(vs[d].reduce((a,v)=>a+(v-m)*(v-m),0)/12);
+    $("dims").insertAdjacentHTML("beforeend",'<div class="dim"><div class="l"><span class="a">'+pct+'% '+p[1]+' ('+p[0]+')</span><span class="b">'+(100-pct)+'% '+p[3]+' ('+p[2]+')</span></div><div class="track"><i data-w="'+pct+'"></i></div></div>');
+  });
+  const c=Math.max(0,Math.min(100,Math.round(100-(sd/4)*25))),t=T[code];
+  $("rt").textContent=code;$("rn").textContent=t[0];$("rd").textContent=t[1];$("rs").textContent=t[2];$("rw").textContent=t[3];
+  $("cn").textContent="Honesty meter: "+c+"%";
+  $("cm").textContent=c>=70?"Aapke jawab kaafi consistent the, to ye result bharose layak hai.":"Kuch jawab ek doosre se takraye. Shayad jaldi mein ya “achha dikhne” ke hisaab se click hua. Ek baar aur try karke dekho.";
+  window._r=[code,t[0]];show("res");
+  setTimeout(()=>document.querySelectorAll(".track i").forEach(e=>e.style.width=e.dataset.w+"%"),80);
+}
+$("start").onclick=start;
+$("retake").onclick=()=>{
+  if(confirm("Kya aap dobara quiz shuru karna chahte hain? Aapka current result hat jayega."))start();
+};
+$("back").onclick=()=>{if(pickTimer)clearTimeout(pickTimer);if(i>0){i--;render()}};
+$("exit").onclick=()=>{
+  if(confirm("Kya aap sach mein quiz chhodna chahte hain? Ab tak ke answers delete ho jayenge aur aap home page par aa jayenge.")){
+    if(pickTimer)clearTimeout(pickTimer);
+    ord=[];ans={};i=0;show("intro");
+  }
+};
+$("opts").onclick=e=>{const b=e.target.closest(".opt");if(b)pick(+b.dataset.c)};
+document.addEventListener("keydown",e=>{if(!$("quiz").classList.contains("hide")&&e.key>="1"&&e.key<="5")pick(+e.key-1)});
+$("share").onclick=async()=>{
+  const r=window._r,txt="Mera personality type "+r[0]+" ("+r[1]+") aaya! Tum bhi Personality Detective khelo aur apna type pata karo:",u=location.href.split("#")[0];
+  try{if(navigator.share)await navigator.share({title:"Personality Detective",text:txt,url:u});else{await navigator.clipboard.writeText(txt+" "+u);$("share").textContent="Link copy ho gaya ✓"}}catch(e){}
+};
+</script>
+</body>
+</html>
